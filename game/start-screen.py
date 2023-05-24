@@ -1,15 +1,21 @@
 import os
 import time
-import requests
+from tkinter import messagebox
+try:
+    import requests
+except:
+    messagebox.showerror(title="Cat-Ball", message="you do not have requests")
+    if (messagebox.askyesno(title="Cat-Ball", message="install requests", icon='error')):
+        os.startfile("install-1.bat")
+    
 
-your_v = 0.1
+your_v = 0.2
 
 def start():
     print("1. start")
     print("2. LICENSE")
     print("3. quit")
     print("4. info")
-    print("5. how to mod this game")
 
     Q = int(input())
 
@@ -29,7 +35,7 @@ def start():
         quit()
 
     if(Q == 4):
-        pass
+        os.startfile("menu-4.url")
 
     if(Q == 5):
         os.startfile("menu-5.url")
@@ -51,3 +57,4 @@ if(API.json()['New-V']['ues'] == "yes"):
         
 elif(API.json()['New-V']['ues'] == "no"):
     start()
+
