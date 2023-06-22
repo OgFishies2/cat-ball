@@ -1,2 +1,2 @@
 @echo off
-start (new)-Start-screen.pyw
+start Start-screen.py
