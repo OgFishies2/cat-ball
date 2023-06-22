@@ -7,38 +7,24 @@ except:
     if (messagebox.askyesno(title="Cat-Ball", message="install requests", icon='error')):
         os.startfile("install-1.bat")
 
-dev = False
+try:
+    with open('login/Username.txt','r') as file:
+        Username = file.read()
+    with open('login/Password.txt','r') as file:
+        Password = file.read()
+    with open('login/dev.txt','r') as file:
+         dev = file.read()
+except FileNotFoundError:
+    messagebox.showerror(title="Cat-Ball", message="you are not logined")
 
-with open('api-data-url.txt','r') as file:
-    api_data_url = file.read()
-API = requests.get(api_data_url)
+API = requests.get("https://ogfishies2.github.io/Cat-Ball-API/cat-bal-data.json")
 
-hi = API.json()['Messages']['hi']
-print(hi)
-
-
-name = input("what is your name ")
-if(name == "(DEV)"):
-    if (messagebox.askyesno(title="Cat-Ball", message="Dev Mode", icon='warning')):
-        dev = True
-    else:
-        dev = False
-        name = "idk"
-        
-        
+print(f"hi {Username}")
+if  input("play (y/n)") == "y" or "Y":
+    pass
     
-print(f"hi {name}")
-if(dev):
-    print(2)
 
-q = int(input("what is 1+1="))
+    
 
 
-if(q == 2):
-    print("yes")
-
-if not(q == 2):
-    print("no")
-
-input()
 
